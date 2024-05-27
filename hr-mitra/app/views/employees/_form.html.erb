@@ -1,0 +1,108 @@
+<%= form_with model: @employee do |form| %>
+<div class="row">
+ <!-- Displaying all error message  -->
+        <!-- 	<% if @employee.errors.any? %>
+        	<div class="col-lg-12">
+        		<p class="lead">Please fix error below</p>
+        		<% @employee.errors.full_messages.each do |message| %>
+        		<p class="text-danger"> <%= message %></p>
+        		<% end -%>
+        	</div>
+        	<% end -%> -->
+
+
+          <div class="col-lg-4">
+            <div class="form-group">
+              <span style="font-weight: bold;"><%= form.label :first_name, class: "mb-2" %></span>
+              <%= form.text_field :first_name, class: "form-control form-control-lg rounded-0" %>
+              <% if @employee.errors[:first_name].any? %>
+              <p class="text-danger"><%= @employee.errors[:first_name].first %></p>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <span style="font-weight: bold;"><%= form.label :middle_name, class: "mb-2" %></span>
+              <%= form.text_field :middle_name, class: "form-control form-control-lg rounded-0" %>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="form-group">
+              <span style="font-weight: bold;"><%= form.label :last_name, class: "mb-2" %></span>
+              <%= form.text_field :last_name, class: "form-control form-control-lg rounded-0" %>
+              <% if @employee.errors[:last_name].any? %>
+              <p class="text-danger"><%= @employee.errors[:last_name].first %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="form-group">
+              <span style="font-weight: bold;"><%= form.label :personal_email, class: "mb-2" %></span>
+              <%= form.text_field :personal_email, class: "form-control form-control-lg rounded-0" %>
+              <% if @employee.errors[:personal_email].any? %>
+              <p class="text-danger"><%= @employee.errors[:personal_email].first %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <span style="font-weight: bold;"><%= form.label :address_line_1, class: "mb-2" %></span>
+              <%= form.text_field :address_line_1, class: "form-control form-control-lg rounded-0" %>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <span style="font-weight: bold;"><%= form.label :address_line_2, class: "mb-2" %></span>
+              <%= form.text_field :address_line_2, class: "form-control form-control-lg rounded-0" %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="form-group">
+              <span style="font-weight: bold;"><%= form.label :city, class: "mb-2" %></span>
+              <%= form.text_field :city, class: "form-control form-control-lg rounded-0" %>
+              <% if @employee.errors[:city].any? %>
+              <p class="text-danger"><%= @employee.errors[:city].first %></p>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <span style="font-weight: bold;"><%= form.label :state, class: "mb-2" %></span>
+              <%= form.text_field :state, class: "form-control form-control-lg rounded-0" %>
+              <% if @employee.errors[:state].any? %>
+              <p class="text-danger"><%= @employee.errors[:state].first %></p>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <span style="font-weight: bold;"><%= form.label :country, class: "mb-2" %></span>
+              <%= form.text_field :country, class: "form-control form-control-lg rounded-0" %>
+              <% if @employee.errors[:country].any? %>
+              <p class="text-danger"><%= @employee.errors[:country].first %></p>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <span style="font-weight: bold;"><%= form.label :pincode, class: "mb-2" %></span>
+              <%= form.text_field :pincode, class: "form-control form-control-lg rounded-0" %>
+              <% if @employee.errors[:pincode].any? %>
+              <p class="text-danger"><%= @employee.errors[:pincode].first %></p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+        	<div class ="col-lg-12 mt-4">
+           <%= form.submit class: "btn btn-primary btn-lg rounded-0", type: "submit" %>
+           <%= link_to "Back to Employee",employees_path, class: "btn btn-primary btn-lg rounded-0", type: "submit" %>
+         </div>
+       </div>
+<% end %>
