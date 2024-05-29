@@ -2,9 +2,15 @@
   <div class="card" style="border: 1px solid #e3e6f0; border-radius: .35rem; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); margin-top: 3rem; margin-bottom: 3rem;">
     <div class="card-body" style="padding: 2rem;">
       <h2 class="text-center" style="text-align: center;">Employee Details</h2>
-      <div class="row">
+      <div class="row mt-5" style="margin-left: 15rem;">
         <div class="col-lg-6">
-          <h3 class="text-center" style="text-align: center;">Personal Information</h3>
+          <h3>Personal Information</h3>
+          <img
+          src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+          alt=""
+          style="width: 45px; height: 45px"
+          class="rounded-circle"
+          />
           <p class="lead" style="font-size: 1.25rem; font-weight: 300;"><strong>First Name: </strong><%= @employee.first_name %></p>
           <p class="lead" style="font-size: 1.25rem; font-weight: 300;"><strong>Middle Name: </strong><%= @employee.middle_name.present? ? @employee.middle_name: 'NA' %></p>
           <p class="lead" style="font-size: 1.25rem; font-weight: 300;"><strong>Last Name: </strong><%= @employee.last_name %></p>
@@ -13,7 +19,7 @@
           <%= link_to "Edit Employee", edit_employee_path(@employee), class: "btn btn-warning btn-lg  rounded-0" %>
         </div>
         <div class="col-lg-6">
-          <h3 class="text-center" style="text-align: center;">Address Information</h3>
+          <h3>Address Information</h3>
           <p class="lead" style="font-size: 1.25rem; font-weight: 300;"><strong>Address Line 1: </strong><%= @employee.address_line_1 %></p>
           <p class="lead" style="font-size: 1.25rem; font-weight: 300;"><strong>Address Line 2: </strong><%= @employee.address_line_2 %></p>
           <p class="lead" style="font-size: 1.25rem; font-weight: 300;"><strong>City: </strong><%= @employee.city %></p>
@@ -25,3 +31,42 @@
     </div>
   </div>
 </div>
+<%# <table class="table align-middle mb-0 bg-white">
+  <thead class="bg-light">
+    <tr>
+      <th colspan="3" class="text-center">Employee Details</th>
+    </tr>
+     <tr>
+      <th>Employee Details</th>
+      <th>Employee Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+              src="https://mdbootstrap.com/img/new/avatars/8.jpg"
+              alt=""
+              style="width: 45px; height: 45px"
+              class="rounded-circle"
+              />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">First Name : John Doe</p>
+            <p class="text-muted mb-0">Middle Name :NA</p> 
+            <p class="text-muted mb-0">Last Name :NA</p> 
+            <p class="text-muted mb-0">Personal Email : john.doe@gmail.com</p>
+          </div>
+        </div>
+      </td>
+      <td>
+        <p class="fw-normal mb-1">Address Line 1: ward no 05</p>
+        <p class="text-muted mb-0">Address Line 2: silpur </p>
+        <p class="fw-normal mb-1">City: Kotma 01</p>
+        <p class="text-muted mb-0">State: MP</p>
+        <p class="fw-normal mb-1">Country: india</p>
+        <p class="text-muted mb-0">Pincode: 484334</p>
+      </td>
+    </tr>
+  </tbody>
+</table> %>
