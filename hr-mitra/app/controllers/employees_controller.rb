@@ -1,8 +1,17 @@
+# app/controllers/employees_controller.rb
+
+require 'csv'
+
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:edit, :update, :destroy, :show]
 
   def index
     @employees = Employee.all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data export_csv(@employees), filename: "employees-#{Date.today}.csv" }
+    end
   end
 
   def new
@@ -51,5 +60,14 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
   rescue ActiveRecord::RecordNotFound => error
     redirect_to employees_path, alert: 'Employee not found'
+  end
+
+  def export_csv(employees)
+    CSV.generate(headers: true) do |csv|
+      csv << ["First Name", "Middle Name", "Last Name", "Email", "City", "State", "Country", "Pincode", "Address Line 1", "Address Line 2"]
+      employees.each do |employee|
+        csv << [employee.first_name, employee.middle_name, employee.last_name, employee.personal_email, employee.city, employee.state, employee.country, employee.pincode, employee.address_line_1, employee.address_line_2]
+      end
+    end
   end
 end
